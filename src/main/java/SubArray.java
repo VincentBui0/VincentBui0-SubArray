@@ -13,6 +13,17 @@ public class SubArray {
      * @return a sub-array of nums containing the values between start and end.
      */
     public int[] sub(int[] nums, int start, int end){
-        return null;
+        if (start < 0 || start >= nums.length || end <= start || end > nums.length) {
+            throw new IllegalArgumentException("Invalid start or end indices.");
+        }
+
+        int subArraySize = end - start;
+        int[] subArray = new int[subArraySize];
+
+        for (int i = 0; i < subArraySize; i++) {
+            subArray[i] = nums[start + i];
+        }
+
+        return subArray;
     }
 }
